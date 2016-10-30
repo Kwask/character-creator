@@ -19,13 +19,13 @@
 	<form action="viewer.php" onsubmit="return verifyCharForm()" method="post" autocomplete="off" id="char_form">
 		<label>Name:</label>
 		<input name="name" type="text" placeholder="Name your character..." onfocus="return setInputStatus('f1_t1')">
-		<div class="hidden" id="f1_t1">Named needed!</div>
+		<div class="hidden" id="f1_t1">Error</div>
 		<br>
 		
 		<label>Gender:</label>
 		<input type="radio" name="gender" value="Male" onfocus="return setInputStatus('f1_r1')">Male</input>
 		<input type="radio" name="gender" value="Female" onfocus="return setInputStatus('f1_r1')">Female</input>
-		<div class="hidden" id="f1_r1">Gender needed!</div>
+		<div class="hidden" id="f1_r1">Error</div>
 		<br>
 		
 		<label>Class:</label>
@@ -35,7 +35,7 @@
 			<option value="Rogue">Rogue</option>
 			<option value="Cleric">Cleric</option>
 		</select>
-		<div class="hidden" id="f1_l1">Class needed!</div>
+		<div class="hidden" id="f1_l1">Error</div>
 		<br>
 		
 		<div class="b1">

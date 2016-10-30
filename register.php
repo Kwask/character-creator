@@ -21,35 +21,35 @@
 		<div>
 		<label>Username:</label>
 		<input name="username" type="text" onfocus="return setInputStatus('f1_t1')">
-		<div class="hidden" id="f1_t1">Username needed!</div>
+		<div class="hidden" id="f1_t1">Error</div>
 		</div>
 		<br>
 		
 		<div>
 		<label>Password:</label>
 		<input name="password0" type="password" onfocus="return setInputStatus('f1_t2')">
-		<div class="hidden" id="f1_t2">Password needed!</div>
+		<div class="hidden" id="f1_t2">Error</div>
 		</div>
 		<br>
 		
 		<div>
 		<label>Password (again):</label>
 		<input name="password1" type="password" onfocus="return setInputStatus('f1_t3')">
-		<div class="hidden" id="f1_t3">Password needed!</div>
+		<div class="hidden" id="f1_t3">Error</div>
 		</div>
 		<br>
 		
 		<div>
 		<label>Email:</label>
 		<input name="email0" type="text" onfocus="return setInputStatus('f1_t4')">
-		<div class="hidden" id="f1_t4">Email needed!</div>
+		<div class="hidden" id="f1_t4">Error</div>
 		</div>
 		<br>
 		
 		<div>
 		<label>Email (again):</label>
 		<input name="email1" type="text" onfocus="return setInputStatus('f1_t5')">
-		<div class="hidden" id="f1_t5">Email needed!</div>
+		<div class="hidden" id="f1_t5">Error</div>
 		</div>
 		<br>
 		
