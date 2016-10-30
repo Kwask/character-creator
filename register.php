@@ -12,51 +12,114 @@
 	<title>Register</title>
 </head>
 <body>
-	<?php drawNavbar() ?>
+	<?php drawNavbar();
 	
-	<h1>Register</h1>
-	
-	<div class="f1">
-	<form action="index.php" onsubmit="return verifyRegistrationForm()" method="post" autocomplete="off" id="register_form">
-		<div>
-		<label>Username:</label>
-		<input name="username" type="text" onfocus="return setInputStatus('f1_t1')">
-		<div class="hidden" id="f1_t1">Error</div>
-		</div>
-		<br>
+	if(!empty($_POST["username"]) || !empty($_POST["password1"]))
+	{
+		$conn = db_connect();
+		$username = mysql_real_escape_string($_POST["username"]);
+		$password = md5(mysql_real_escape_string($_POST["password1"]));
+		$email =  mysql_real_escape_string($_POST["email0"]);
+
+		$query_username = "SELECT * FROM users WHERE username='{$username}'";
+		$query_email = "SELECT * FROM users WHERE email='{$email}'";
+
+		$result_username = $conn->query($query_username);
+		if(!$result_username)
+		{
+			die($conn->error);
+		}
+
+		$result_email = $conn->query($query_email);
+		if(!$result_email)
+		{
+			die($conn->error);
+		}
+
+		$rows_username = $result_username->num_rows;
+		$rows_email = $result_email->num_rows;
+
+		if($rows_username >= 1)
+		{
+		?>
+			<div class="f1">
+				<center>Sorry that username is taken!</center>
+			</div>
+		<?php
+		}else	if($rows_email >= 1)
+		{
+		?>
+			<div class="f1">
+				<center>That email is tied to an existing account!</center>
+			</div>
+		<?php
+		}else
+		{
+			$register_query = "INSERT INTO users (username, password, email) VALUES ('".$username."', '".$password."', '".$email."')";
+			$conn->query($register_query);
+			if($conn->error)
+			{
+				die($conn->error);
+			}
+			else
+			{
+			?>
+				<div class="f1">
+					<center>Successfully registered!</center>
+				</div>
+			<?php
+			}
+		}
+	}else
+	{
+	?>
+		<h1>Registration</h1>
 		
-		<div>
-		<label>Password:</label>
-		<input name="password0" type="password" onfocus="return setInputStatus('f1_t2')">
-		<div class="hidden" id="f1_t2">Error</div>
+		<div class="f1">
+		<form action="register.php" onsubmit="return verifyRegistrationForm()" method="post" autocomplete="off" id="register_form">
+			<div>
+			<label>Username:</label>
+			<input name="username" type="text" onfocus="return setInputStatus('f1_t1')">
+			<div class="hidden" id="f1_t1">Error</div>
+			</div>
+			<br>
+			
+			<div>
+			<label>Password:</label>
+			<input name="password0" type="password" onfocus="return setInputStatus('f1_t2')">
+			<div class="hidden" id="f1_t2">Error</div>
+			</div>
+			<br>
+			
+			<div>
+			<label>Password (again):</label>
+			<input name="password1" type="password" onfocus="return setInputStatus('f1_t3')">
+			<div class="hidden" id="f1_t3">Error</div>
+			</div>
+			<br>
+			
+			<div>
+			<label>Email:</label>
+			<input name="email0" type="text" onfocus="return setInputStatus('f1_t4')">
+			<div class="hidden" id="f1_t4">Error</div>
+			</div>
+			<br>
+			
+			<div>
+			<label>Email (again):</label>
+			<input name="email1" type="text" onfocus="return setInputStatus('f1_t5')">
+			<div class="hidden" id="f1_t5">Error</div>
+			</div>
+			<br>
+			
+			<div class=b1>
+				<button type="submit" form="register_form">Register</button>
+			</div>
+		</form>
 		</div>
-		<br>
-		
-		<div>
-		<label>Password (again):</label>
-		<input name="password1" type="password" onfocus="return setInputStatus('f1_t3')">
-		<div class="hidden" id="f1_t3">Error</div>
-		</div>
-		<br>
-		
-		<div>
-		<label>Email:</label>
-		<input name="email0" type="text" onfocus="return setInputStatus('f1_t4')">
-		<div class="hidden" id="f1_t4">Error</div>
-		</div>
-		<br>
-		
-		<div>
-		<label>Email (again):</label>
-		<input name="email1" type="text" onfocus="return setInputStatus('f1_t5')">
-		<div class="hidden" id="f1_t5">Error</div>
-		</div>
-		<br>
-		
-		<div class=b1>
-			<button type="submit" form="register_form">Register</button>
-		</div>
-	</form>
-	</div>
+	<?php 
+	}
+	?>
+
 </body>
 </html>
