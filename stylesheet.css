@@ -27,6 +27,7 @@ div.hidden {
 	display: none;
 }
 
+/* Form type 1 */
 div.f1 {
 	max-width: 60%;
 	margin: auto;
@@ -35,12 +36,14 @@ div.f1 {
 	border-radius: 15px;
 }
 
-div.c1 {
+/* Button type 1 */
+div.b1 {
 	margin: auto;
 	padding: 5px;
 	text-align: center;
 }
 
+/* Select type 1 */
 select.s1 {
 	padding: 6px;
 	border: 1px solid #ccc;
@@ -50,7 +53,7 @@ select.s1 {
 
 label {
 	display:inline-block;
-	width: 80px;
+	width: 120px;
 	padding: 10px;
 }
 
@@ -61,12 +64,22 @@ input[type=text] {
 	border: 2px solid #ccc;
 	border-radius: 4px;
 	background-color: white;
-	-webkit-transition: width 0.3s ease-in-out;
-	transition: width 0.3s ease-in-out;
 }
 
 input[type=text]:focus {
-	width: 80%;
+	border: 2px solid #3fb;
+}
+
+input[type=password] {
+	width: 40%;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: white;
+}
+
+input[type=password]:focus {
 	border: 2px solid #3fb;
 }
 

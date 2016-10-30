@@ -1,5 +1,3 @@
-const ERR = 0
-
 function verifyCharForm() 
 {
 	var c_name = document.forms["char_form"]["name"].value;
@@ -10,33 +8,21 @@ function verifyCharForm()
 
 	if(c_name==null || c_name=="")
 	{
-		setInputStatus("f1_t1", ERR);
+		setInputStatus("f1_t1", false);
 		should_submit = false;
 	}
 
 	if(c_gender==null || c_gender=="")
 	{
-		setInputStatus("f1_r1", ERR);
+		setInputStatus("f1_r1", false);
 		should_submit = false;
 	}
 
 	if(c_class==null || c_class=="")
 	{
-		setInputStatus("f1_l1", ERR);
+		setInputStatus("f1_l1", false);
 		should_submit = false;
 	}
 
 	return should_submit;
-}
-
-function setInputStatus(t_id, stat)
-{
-	if(stat==ERR )
-	{
-		document.getElementById(t_id).setAttribute("class", "error");
-	}
-	else
-	{
-		document.getElementById(t_id).setAttribute("class", "hidden");
-	}
 }

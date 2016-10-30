@@ -2,6 +2,8 @@
 
 require_once './config/db_config.php';
 
+session_start();
+
 // This function creates a new db connection if one doesnt currently exist
 function db_connect()
 {

@@ -1,15 +1,22 @@
+<?php 
+	require_once "./navbar.php";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="functions.js"></script>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<script src="helpers.js"></script>
+	<script src="creator_func.js"></script>
 	<title>Character Creator</title>
 </head>
 <body>
+	<?php drawNavbar() ?>
+
 	<h1>Character Creator</h1>
 	
 	<div class="f1">
-	<form action="submit" onsubmit="return verifyCharForm()" method="post" autocomplete="off" id="char_form">
+	<form action="viewer.php" onsubmit="return verifyCharForm()" method="post" autocomplete="off" id="char_form">
 		<label>Name:</label>
 		<input name="name" type="text" placeholder="Name your character..." onfocus="return setInputStatus('f1_t1')">
 		<div class="hidden" id="f1_t1">Named needed!</div>
@@ -31,8 +38,8 @@
 		<div class="hidden" id="f1_l1">Class needed!</div>
 		<br>
 		
-		<div class="c1">
-		<button type="submit" form="char_form">Submit</button>
+		<div class="b1">
+			<button type="submit" form="char_form">Submit</button>
 		</div>
 	</form>
 	</div>
