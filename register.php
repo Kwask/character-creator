@@ -63,6 +63,9 @@
 			}
 			else
 			{
+				$_SESSION["logged_in"] = TRUE;
+				$_SESSION["username"] = $username;
+				$_SESSION["email"] = $email;
 			?>
 				<div class="f1">
 					<center>Successfully registered!</center>
