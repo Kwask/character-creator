@@ -17,9 +17,9 @@
 	if(!empty($_POST["username"]) || !empty($_POST["password1"]))
 	{
 		$conn = db_connect();
-		$username = mysql_real_escape_string($_POST["username"]);
-		$password = md5(mysql_real_escape_string($_POST["password1"]));
-		$email =  mysql_real_escape_string($_POST["email0"]);
+		$username = mysqli_real_escape_string($conn, $_POST["username"]);
+		$password = md5(mysqli_real_escape_string($conn, $_POST["password1"]));
+		$email =  mysqli_real_escape_string($conn, $_POST["email0"]);
 
 		$query_username = "SELECT * FROM users WHERE username='{$username}'";
 		$query_email = "SELECT * FROM users WHERE email='{$email}'";
@@ -43,14 +43,14 @@
 		{
 		?>
 			<div class="f1">
-				<center>Sorry that username is taken!</center>
+				<center>Sorry that username is taken! Please <a href="register.php">try again</a>.</center>
 			</div>
 		<?php
 		}else	if($rows_email >= 1)
 		{
 		?>
 			<div class="f1">
-				<center>That email is tied to an existing account!</center>
+				<center>That email is tied to an existing account! Please <a href="register.php">try again</a>.</center>
 			</div>
 		<?php
 		}else
@@ -68,7 +68,7 @@
 				$_SESSION["email"] = $email;
 			?>
 				<div class="f1">
-					<center>Successfully registered!</center>
+					<center>Successfully registered! You may now return to the <a href="index.php">home page</a>.</center>
 				</div>
 			<?php
 			}

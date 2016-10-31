@@ -28,8 +28,8 @@
 		{
 			$conn = db_connect();
 
-			$username = mysql_real_escape_string($_POST["username"]);
-			$password = md5(mysql_real_escape_string($_POST["password"]));
+			$username = mysqli_real_escape_string($conn, $_POST["username"]);
+			$password = md5(mysqli_real_escape_string($conn, $_POST["password"]));
 			$query = "SELECT * FROM users WHERE username='{$username}' AND password='{$password}'";
 
 			$login_result = $conn->query($query);
