@@ -2,13 +2,17 @@
 
 function drawNavbar()
 {
-	echo "<table><tr>";
-	echo "<td><a href='index.php'>Home</a></td>";
+	?>
+
+	<table><tr>
+	<td><button type="button" onclick="location.href='index.php'">Home</button></td>
+
+	<?php
 
 	if(!empty($_SESSION["logged_in"]) && !empty($_SESSION["username"]))
 	{
-		echo "<td>Hello " . htmlentities($_SESSION["username"]) . "</td>";
-		echo "<td><a href='logout.php'>Logout</a></td>";
+		echo "<td>Hello <b>" . htmlentities($_SESSION["username"]) . "</b>";
+		echo " <button type='button' onclick=\"location.href='logout.php'\"> Logout</a></td>";
 	}
 	else
 	{ 
@@ -16,12 +20,16 @@ function drawNavbar()
 		
 		if($filename!="login.php")
 		{
-			echo "<td><a href='login.php'>Login</a></td>";
+			?>
+			<td><button type="button" onclick="location.href='login.php'">Login</button></td>
+			<?php
 		}
 
 		if($filename!='register.php')
 		{
-			echo "<td><a href='register.php'>Register</a></td>";
+			?>
+			<td><button type="button" onclick="location.href='register.php'">Register</button></td>
+			<?php
 		}
 
 		echo "</td>";

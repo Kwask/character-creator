@@ -93,3 +93,7 @@ button {
 	font-size: 14px;
 	font-weight: bold;
 }
+
+td {
+	padding: 10px;
+}
