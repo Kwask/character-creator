@@ -3,7 +3,7 @@
 function drawNavbar()
 {
 	echo "<table><tr>";
-	echo "<td><a href='index'>Home</a></td>";
+	echo "<td><a href='index.php'>Home</a></td>";
 
 	if(!empty($_SESSION["logged_in"]) && !empty($_SESSION["username"]))
 	{
