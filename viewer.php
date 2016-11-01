@@ -1,5 +1,3 @@
-<?php require_once "./navbar.php" ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +5,7 @@
 	<title>chirzel</title>
 </head>
 <body>
-	<?php drawNavbar() ?>
+	<?php require_once "./navbar.php" ?>
 	<div class="f1">
 	<label>Name:</label><b><?php print(htmlspecialchars($_POST['name'])) ?></b>
 	<br>

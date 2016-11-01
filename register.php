@@ -1,5 +1,4 @@
 <?php 
-	require_once "./navbar.php";
 	require_once "./db.php";
 ?>
 
@@ -12,7 +11,8 @@
 	<title>Register</title>
 </head>
 <body>
-	<?php drawNavbar();
+	<?php 
+	require_once "./navbar.php";
 	
 	if(!empty($_POST["username"]) || !empty($_POST["password1"]))
 	{

@@ -1,5 +1,4 @@
-<?php 
-	require_once "./navbar.php";
+<?php
 	require_once "./db.php";
 ?>
 
@@ -11,8 +10,10 @@
 	<title>Login</title>
 </head>
 <body>
-	<?php drawNavbar() ?>
-
+	<?php 
+	require_once "./navbar.php"; 
+	?>
+	
 	<h1>Login</h1>
 
 	<?php

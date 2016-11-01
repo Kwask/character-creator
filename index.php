@@ -1,5 +1,4 @@
-<?php 
-	require_once "./navbar.php";
+<?php
 	require_once "./db.php";
 ?>
 
@@ -10,7 +9,7 @@
 	<title>Character Creator</title>
 </head>
 <body>
-	<?php drawNavbar() ?>
+	<?php require_once "./navbar.php" ?>
 
 	<h1>Character Creator</h1>
 	<p>Hello! This app allows you to create characters for Dungeons and Dragons!</p>

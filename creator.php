@@ -1,7 +1,3 @@
-<?php 
-	require_once "./navbar.php";
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +7,7 @@
 	<title>Character Creator</title>
 </head>
 <body>
-	<?php drawNavbar() ?>
+	<?php require_once "./navbar.php" ?>
 
 	<h1>Character Creator</h1>
 	

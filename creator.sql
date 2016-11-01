@@ -16,6 +16,7 @@ CREATE TABLE `users` (
   `username` varchar(65) NOT NULL,
   `password` varchar(32) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `verified` bit NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
